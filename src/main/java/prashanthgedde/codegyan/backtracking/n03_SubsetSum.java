@@ -18,6 +18,7 @@ import java.util.ArrayList;
  * There is no subset that add up to 30.
  *
  * Followup: Find any/all Subsets.
+ * This is backtracking, can also apply DP.
  */
 public class n03_SubsetSum {
 

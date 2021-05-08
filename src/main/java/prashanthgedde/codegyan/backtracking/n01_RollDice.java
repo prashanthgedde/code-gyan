@@ -19,11 +19,13 @@ public class n01_RollDice {
     //  Each recursive call creates a fresh string.
     //  Hence, no need for backtracking.
     private static void rollDice_(int numDice, String soFar) {
+        // base case
         if(numDice == 0) {
             System.out.println(soFar);
             return;
         }
 
+        // exploring
         for(int i=1; i<=6; i++) {
             rollDice_(numDice-1, soFar+i+",");
         }
@@ -43,14 +45,15 @@ public class n01_RollDice {
             System.out.println("");
             return;
         }
+        //exploring
         for(int i=1; i<=6; i++) {
-            list.add(i);
+            list.add(i); // choosing a choice
             rollDice_(numDice-1, list);
             list.remove(list.size()-1);   // <<<<<----- Backtracking to explore other possibilities
         }
     }
 
     public static void main(String []args) {
-        rollDice(1);
+        rollDice(2);
     }
 }

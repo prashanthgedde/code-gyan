@@ -32,20 +32,14 @@ public class n01_01KnapSack {
 
         int []wt = new int[]{10, 20, 30};
         int []vl = new int[]{150, 100, 120};
-        List<Integer> result = new ArrayList<>();
-        System.out.println(knapsack_solve(wt, vl, 50, result));
-        System.out.println(result);
+        System.out.println(knapsack_solve(wt, vl, 50));
 
         int[] profits = {1, 6, 10, 16};
         int[] weights = {1, 2, 3, 5};
-        result = new ArrayList<>();
-        System.out.println(knapsack_solve(weights, profits, 7, result));
-        System.out.println(result);
+        System.out.println(knapsack_solve(weights, profits, 7));
 
         int [] w = { 2, 3, 1, 4 };
         int [] p = { 4, 5, 3, 7 };
-        result = new ArrayList<>();
-        System.out.println(knapsack_solve(w, p, 6, result));
-        System.out.println(result);
+        System.out.println(knapsack_solve(w, p, 6));
     }
 }

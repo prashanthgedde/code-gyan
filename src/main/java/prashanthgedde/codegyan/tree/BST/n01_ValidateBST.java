@@ -1,4 +1,6 @@
-package prashanthgedde.codegyan.tree;
+package prashanthgedde.codegyan.tree.BST;
+
+import prashanthgedde.codegyan.tree.BinaryTreeNode;
 
 public class n01_ValidateBST {
 
@@ -27,7 +29,6 @@ public class n01_ValidateBST {
         root.left = new BinaryTreeNode(4);
         root.right = new BinaryTreeNode(9);
         System.out.println(n01_ValidateBST.isValidBST(root));
-
 
         root = new BinaryTreeNode(1);
         root.left = new BinaryTreeNode(4);

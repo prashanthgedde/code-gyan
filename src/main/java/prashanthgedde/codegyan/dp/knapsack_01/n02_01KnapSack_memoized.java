@@ -11,28 +11,28 @@ public class n02_01KnapSack_memoized {
             }
         }
 
-        return _knapsack_helper(wt, val, capacity, 0);
+        return _knapsack_helper(wt, val, capacity, wt.length);
     }
 
-    private static int _knapsack_helper(int []wt, int []val, int capacity, int index) {
-        if(index == wt.length || capacity == 0) {
+    private static int _knapsack_helper(int []wt, int []val, int capacity, int N) {
+        if(N == 0 || capacity == 0) {
             // no more items or no capacity
-            DP[capacity][index] = 0;
-            return DP[capacity][index];
+            DP[capacity][N] = 0;
+            return DP[capacity][N];
         }
 
-        if(DP[capacity][index] != -1) {
-            return DP[capacity][index];  //<<--- Memoization used here
+        if(DP[capacity][N-1] != -1) {
+            return DP[capacity][N-1];  //<<--- Memoization used here
         }
 
-        if (wt[index] <= capacity) {
-            int val1 = val[index] + _knapsack_helper(wt, val, capacity - wt[index], index + 1);
-            int val2 = _knapsack_helper(wt, val, capacity, index + 1);
-            DP[capacity][index] = Math.max(val1, val2);  // <<-- Once computed, the value is cached
+        if (wt[N-1] <= capacity) {
+            int val1 = val[N-1] + _knapsack_helper(wt, val, capacity - wt[N-1], N-1);
+            int val2 = _knapsack_helper(wt, val, capacity, N-1);
+            DP[capacity][N-1] = Math.max(val1, val2);  // <<-- Once computed, the value is cached
         } else {
-            DP[capacity][index] = _knapsack_helper(wt, val, capacity, index + 1); // <<-- cached here too
+            DP[capacity][N-1] = _knapsack_helper(wt, val, capacity, N-1); // <<-- cached here too
         }
-        return DP[capacity][index];
+        return DP[capacity][N-1];
     }
 
     public static void main(String[] args) {
